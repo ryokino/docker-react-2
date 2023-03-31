@@ -3,4 +3,7 @@ services:
   - docker
 
 before_install: 
-  - docker build -f Dockerfile.dev .
+  - docker build -t ryokinoshita/docker-react-2 -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true ryokinoshita/docker-react-2 npm run test
